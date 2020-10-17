@@ -9,7 +9,7 @@
   display: flex;
   background-color: hsl(0, 0%, 93%);
   margin-top: -50px;
-  height: 90vh;
+  height: 85vh;
   width: 90vw;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
 }

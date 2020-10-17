@@ -26,7 +26,9 @@ const Sidebar = () => {
             </div>
             <div className="sidebar__chats">
                 <SidebarChat/>
-                <h1>Sidebar Chat</h1>
+                <SidebarChat/>
+                <SidebarChat/>
+                <SidebarChat/>
             </div>
         </div>
     )
