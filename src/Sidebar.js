@@ -18,8 +18,10 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className="sidebar__search">
-                <SearchOutlined/>
-                <input placeholder="Search or start a new chat"/>
+                <div className="sidebar__searchContainer">
+                   <SearchOutlined/>
+                   <input placeholder="Search or start a new chat" type="text"/>
+                </div>
             </div>
             <div className="sidebar__chats">
 
