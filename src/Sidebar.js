@@ -4,6 +4,7 @@ import ChatIcon from "@material-ui/icons/Chat"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import React from 'react'
 import "./Sidebar.css"
+import { SearchOutlined } from '@material-ui/icons'
 
 const Sidebar = () => {
     return (
@@ -17,7 +18,8 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className="sidebar__search">
-
+                <SearchOutlined/>
+                <input placeholder="Search or start a new chat"/>
             </div>
             <div className="sidebar__chats">
 
