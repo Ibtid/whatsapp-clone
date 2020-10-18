@@ -35,7 +35,7 @@ const Chat = () => {
             <div className="chat__footer">
                 <InsertEmoticon/>
                 <form>
-                    <input type="text"/>
+                    <input type="text" placeholder="Type a message"/>
                     <button>Send a message</button>
                 </form>
                 <MicOutlined/>
