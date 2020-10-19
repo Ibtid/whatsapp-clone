@@ -1,12 +1,14 @@
 import { Avatar, IconButton } from '@material-ui/core'
 import {MoreVert,AttachFile, SearchOutlined, InsertEmoticon, MicOutlined} from "@material-ui/icons/"
 import React,{useState,useEffect} from 'react'
+import { useParams } from "react-router-dom"
 import "./Chat.css"
 
 const Chat = () => {
 
     const[seed,setSeed] = useState("");
     const [input,setInput] = useState("")
+    const { roomId } = useParams();
 
     useEffect(() => {
         setSeed(Math.floor(Math.random()*5000));
