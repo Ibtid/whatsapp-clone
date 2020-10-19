@@ -5,11 +5,17 @@ import "./Chat.css"
 
 const Chat = () => {
 
-    const[seed,setSeed] = useState();
+    const[seed,setSeed] = useState("");
+    const [input,setInput] = useState("")
 
     useEffect(() => {
         setSeed(Math.floor(Math.random()*5000));
-    }, [])
+    }, []);
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        console.log('you typed ', input);
+    }
 
     return (
         <div className="chat">
@@ -35,8 +41,17 @@ const Chat = () => {
             <div className="chat__footer">
                 <InsertEmoticon/>
                 <form>
-                    <input type="text" placeholder="Type a message"/>
-                    <button>Send a message</button>
+                    <input 
+                       type="text"
+                       placeholder="Type a message"
+                       value={input} 
+                       onChange={(e)=>{setInput(e.target.value)}}
+                    />
+                    <button
+                      onClick={sendMessage} 
+                      type="submit">
+                          Send a message
+                    </button>
                 </form>
                 <MicOutlined/>
             </div>
