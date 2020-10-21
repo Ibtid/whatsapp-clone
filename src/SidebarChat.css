@@ -12,8 +12,14 @@
 
 .sidebarChat__info {
   margin-left: 15px;
+  color: black;
 }
 
 .sidebarChat__info > h2 {
   font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
