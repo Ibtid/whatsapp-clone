@@ -2,8 +2,10 @@ import { Avatar, IconButton } from '@material-ui/core'
 import {MoreVert,AttachFile, SearchOutlined, InsertEmoticon, MicOutlined} from "@material-ui/icons/"
 import React,{useState,useEffect} from 'react'
 import { useParams } from "react-router-dom"
+import { useStateValue } from "./StateProvider"
 import db from "./firebase"
 import "./Chat.css"
+import firebase from "firebase"
 
 const Chat = () => {
 
@@ -12,6 +14,7 @@ const Chat = () => {
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
+    const [ { user }, dispatch] = useStateValue();
 
     useEffect(()=>{
         if(roomId){
@@ -39,6 +42,12 @@ const Chat = () => {
         e.preventDefault();
         console.log('you typed ', input);
 
+        db.collection('rooms').doc(roomId).collection('messages').add({
+            message: input,
+            name: user.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+
         setInput("");
     }
 
@@ -58,7 +67,7 @@ const Chat = () => {
             </div>
             <div className="chat__body">
                 {messages.map((message) => (
-                   <p className={`chat__message ${true && "chat__receiver"}`}>
+                   <p className={`chat__message ${message.name === user.displayName && "chat__receiver"}`}>
                       <span className="chat__name">{message.name}</span>
                       {message.message}
                       <span className="chat__timestamp">{new Date(message.timestamp?.toDate()).toUTCString()}</span>
