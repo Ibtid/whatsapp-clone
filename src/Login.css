@@ -21,8 +21,14 @@
 }
 
 .login__container > button {
-  margin-top: 50px;
+  margin-top: 30px;
   text-transform: inherit !important;
   background-color: #0a8d48 !important;
   color: white;
+  font-size: larger;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
 }
